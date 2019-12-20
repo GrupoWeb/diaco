@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="767f9c85-afa5-418d-a1e4-13c3777252f9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosRest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosRest.php" afterDir="false" />
-    </list>
+    <list default="true" id="767f9c85-afa5-418d-a1e4-13c3777252f9" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,31 +25,11 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@128.5.8.229" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@128.5.8.229" type="feb32156:DbDataSourceImpl" />
-        <item name="diaco_web: database" type="ccb7ac2a:MsImplModel$Database" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@128.5.8.229" type="feb32156:DbDataSourceImpl" />
-        <item name="diaco_web: database" type="ccb7ac2a:MsImplModel$Database" />
-        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@128.5.8.229" type="feb32156:DbDataSourceImpl" />
-        <item name="diaco_web: database" type="ccb7ac2a:MsImplModel$Database" />
-        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
-        <item name="routines" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-    </expand>
+    <expand />
     <select />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="diaco" />
   </component>
   <component name="FrameworkCommandLineHistory">
     <commandsHistory>
