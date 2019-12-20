@@ -443,9 +443,9 @@ class ServiciosRest extends Controller
     public function VerifyActiveDepartments(){
         $departments = DB::SELECT('exec VerifyActiveDepartments');
 
-        foreach ($departments as $branche)
+        foreach ($departments as $branch)
         {
-            $codeDepart = $branche->code;
+            $codeDepart = $branch->code;
             $sedes = DB::SELECT('exec getOfficesByDepartment :department',['department' => $codeDepart]);
             $convert = collect($sedes);
             foreach ($convert as $convertt)
@@ -468,8 +468,6 @@ class ServiciosRest extends Controller
             $branches = $department->code;
             $sedes = DB::SELECT('exec getOfficesByDepartment :department',['department' => $branches]);
             $data = $brancheData->where('departamento',$department->code);
-            //codigo_departamento
-
             $response[] = [
                 'code' => $department->code,
                 'name' => $department->name,
