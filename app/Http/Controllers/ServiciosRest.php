@@ -44,7 +44,7 @@ class ServiciosRest extends Controller
 		                            INNER JOIN diaco_categoriacba categoria
 		                                    ON categoria.id_Categoria = plantilla.idCategoria
 	                                WHERE plantilla.NombrePlantilla = (SELECT NombreTemplate FROM diaco_name_template_cba
-								                WHERE id = (SELECT distinct idPlantilla FROM diaco_vaciadocba 
+								                WHERE id = (SELECT distinct idPlantilla FROM diaco_vaciadocba
 												WHERE idPlantilla = (SELECT DISTINCT idPlantilla FROM diaco_vaciadocba))) ");
         $array_departamentos = [];
         foreach ($departamentos as $departamento) {
@@ -73,9 +73,7 @@ class ServiciosRest extends Controller
     public function getPriceNivel2($id,$idCatetoria){
         $date = Carbon::now('America/Guatemala');
         $date->toDateTimeString();
-
         $date_last = $date->addDay(1);
-
         $last_price = DB::table('diaco_vaciadocba')
                         ->distinct()
                         ->join('diaco_productocba','diaco_productocba.id_producto','=','diaco_vaciadocba.idProducto')
@@ -94,6 +92,7 @@ class ServiciosRest extends Controller
                         ->get();
 
         // return response()->json($last_price, 200);
+ 
         return $last_price;
     }
 
@@ -181,7 +180,7 @@ class ServiciosRest extends Controller
         $date_previous = $date->subDay(1)->format('Y-m-d');
         $date_last = $date->addDay(1)->format('Y-m-d');
 
-        $price = DB::select("SELECT  
+        $price = DB::select("SELECT
                                     t1.code as code,
                                     t1.idMedida,
                                     t1.medida,
@@ -189,23 +188,23 @@ class ServiciosRest extends Controller
                                     t1.Precio_actual,
                                     t2.fecha_actual as fecha_anterior,
                                     t2.Precio_actual2 as precio_anterior
-                        FROM 
-                           (SELECT 
+                        FROM
+                           (SELECT
                                     precio.id_producto as code,
                                     precio.nombre as articulo,
                                     medida.id_medida as idMedida,
                                     medida.nombre as medida,
                                     CONVERT(DATE,getdate()) as fecha_actual,
                                     avg(vaciado.precioProducto) as Precio_actual
-                            FROM diaco_vaciadocba vaciado          
+                            FROM diaco_vaciadocba vaciado
                             INNER JOIN diaco_productocba precio
-                                ON precio.id_producto = vaciado.idProducto 
+                                ON precio.id_producto = vaciado.idProducto
                             INNER JOIN diaco_medida medida
                                 ON medida.id_medida = vaciado.idMedida
                             INNER JOIN diaco_usuario usuario
                                 ON usuario.id_usuario = vaciado.idVerificador
                             INNER JOIN diaco_sede sede
-                                ON sede.id_diaco_sede = usuario.id_sede_diaco 
+                                ON sede.id_diaco_sede = usuario.id_sede_diaco
                             INNER JOIN diaco_plantillascba plantilla
                                 ON plantilla.idProducto = vaciado.idProducto
                             INNER JOIN diaco_categoriacba categorias
@@ -215,23 +214,23 @@ class ServiciosRest extends Controller
                                 and categorias.id_Categoria = ".$idCatetoria."
                                 and vaciado.precioProducto > 0
                             GROUP BY precio.nombre, medida.nombre,precio.id_producto, medida.id_medida)  t1
-                    full outer JOIN 
-                            (SELECT 
+                    full outer JOIN
+                            (SELECT
                                     precio.id_producto as code,
                                     precio.nombre as articulo,
                                     medida.id_medida as idMedida,
                                     medida.nombre as medida,
                                     DATEADD(DAY,-1,CONVERT(DATE,getdate())) as fecha_actual,
                                     avg(vaciado.precioProducto) as Precio_actual2
-                            FROM diaco_vaciadocba vaciado          
+                            FROM diaco_vaciadocba vaciado
                             INNER JOIN diaco_productocba precio
-                                ON precio.id_producto = vaciado.idProducto 
+                                ON precio.id_producto = vaciado.idProducto
                             INNER JOIN diaco_medida medida
                                 ON medida.id_medida = vaciado.idMedida
                             INNER JOIN diaco_usuario usuario
                                 ON usuario.id_usuario = vaciado.idVerificador
                             INNER JOIN diaco_sede sede
-                                ON sede.id_diaco_sede = usuario.id_sede_diaco 
+                                ON sede.id_diaco_sede = usuario.id_sede_diaco
                             INNER JOIN diaco_plantillascba plantilla
                                 ON plantilla.idProducto = vaciado.idProducto
                             INNER JOIN diaco_categoriacba categorias
@@ -243,12 +242,13 @@ class ServiciosRest extends Controller
                             GROUP BY precio.nombre, medida.nombre,precio.id_producto, medida.id_medida) t2
                     ON t1.code = t2.code
                     where t1.idMedida = t2.idMedida
-                
+
         ");
 
     return $price;
 
     }
+
 
     public function apiPrice($id,$idCategoria){
 
@@ -258,7 +258,7 @@ class ServiciosRest extends Controller
 
         $getDataPrices = $this->getPriceLastPrevious($id,$idCategoria);
 
-
+        
         $convert = collect($getDataPrices);
         $array_price = array();
         $array_n2 = array();
@@ -317,11 +317,11 @@ class ServiciosRest extends Controller
         $departamentos = Departamento::with('sede')
             ->whereHas('sede')
             ->get();
-        $cate = DB::select("SELECT distinct categoria.id_Categoria as code, categoria.nombre as name 
+        $cate = DB::select("SELECT distinct categoria.id_Categoria as code, categoria.nombre as name
                                     FROM diaco_plantillascba plantilla
                                     INNER JOIN diaco_categoriacba categoria
                                     ON categoria.id_Categoria = plantilla.idCategoria
-                                    WHERE plantilla.NombrePlantilla in 
+                                    WHERE plantilla.NombrePlantilla in
                                     (SELECT distinct NombreTemplate FROM diaco_name_template_cba template
                                     INNER JOIN diaco_vaciadocba vaciado
                                         ON template.id = vaciado.idPlantilla) ");
@@ -377,7 +377,7 @@ class ServiciosRest extends Controller
 
     public function collectionDepartamento(){
 
-       $departamento = DB::select("SELECT distinct 
+       $departamento = DB::select("SELECT distinct
                                     depa.codigo_departamento as code,
                                     depa.nombre_departamento as name,
                                     muni.codigo_municipio as code_muni
@@ -397,7 +397,7 @@ class ServiciosRest extends Controller
 
     public function collectionSede(){
 
-        $sede = DB::select("SELECT distinct 
+        $sede = DB::select("SELECT distinct
                                 sede.id_diaco_sede as code,
                                 sede.nombre_sede as name,
                                 sede.codigo_municipio as code_depa,
@@ -420,7 +420,7 @@ class ServiciosRest extends Controller
 
     public function collectionCategoria(){
 
-        $categoria = DB::select("SELECT distinct 
+        $categoria = DB::select("SELECT distinct
                                     plantilla.idCategoria,
                                     categoria.nombre,
                                     sede.id_diaco_sede as sede_id,
@@ -432,12 +432,16 @@ class ServiciosRest extends Controller
                                         ON template.id = vaciado.idPlantilla
                                     INNER JOIN diaco_plantillascba plantilla
                                         ON plantilla.NombrePlantilla = template.NombreTemplate
-                                    INNER JOIN diaco_categoriacba categoria 
+                                    INNER JOIN diaco_categoriacba categoria
                                         ON categoria.id_Categoria = plantilla.idCategoria
                                     INNER JOIN diaco_sede sede
                                         ON sede.id_diaco_sede = usuario.id_sede_diaco");
         return $categoria;
 
+    }
+
+    public function showPrices(){
+        
     }
 
     public function VerifyActiveDepartments(){
@@ -481,7 +485,6 @@ class ServiciosRest extends Controller
             ->includeCharacters()
             ->toArray();
 
-        //return response()->json($response, 200);
     }
 
     public function collectionDataApi(){

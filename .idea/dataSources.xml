@@ -10,5 +10,11 @@
         <property name="applicationName" value="DataGrip" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="db web" uuid="b9ed04a7-d569-44f7-8fa7-98848e298839">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://128.5.8.229\DIACO:1433</jdbc-url>
+    </data-source>
   </component>
 </project>
