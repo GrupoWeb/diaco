@@ -12,4 +12,22 @@ class vaciadocba extends Model
     ];
 
     protected $table = 'diaco_vaciadocba';
+
+    public function tipo(){
+        return $this->belongsTo('App\Models\api\typeVerify',
+                                'tipoVerificacion',
+                                  'id_TipoVerificacion',
+                                  'correlativo');
+    }
+
+    public function asignaciones()
+    {
+        return $this->belongsTo(
+            'App\Models\api\beAssigned',
+            'Ncorrelativo',
+            'correlativo',
+            'correlativo'
+        );
+    }
+
 }

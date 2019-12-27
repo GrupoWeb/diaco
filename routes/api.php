@@ -20,6 +20,8 @@ Route::get('categories', 'ServiciosRest@VerifyActiveDepartments');
 Route::get('VerifyActiveDepartments','ServiciosRest@VerifyActiveDepartments');
 
 Route::get('verify','appsMobile@VerifyActiveDepartmentsMethods');
+Route::get('checkPaso','appsMobile@checkPaso');
+Route::get('verifys','appsMobile@VerifyActiveDepartments');
 
 
 

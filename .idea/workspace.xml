@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="767f9c85-afa5-418d-a1e4-13c3777252f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/composerJson.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/composerJson.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/core.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/core.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServiciosRest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ServiciosRest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/appsMobile.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/appsMobile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/vaciadocba.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/vaciadocba.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,10 +34,6 @@
       <set />
     </option>
     <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@128.5.8.229" type="feb32156:DbDataSourceImpl" />
-      </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="db web" type="feb32156:DbDataSourceImpl" />
@@ -178,6 +176,8 @@
       <path value="$PROJECT_DIR$/vendor/symfony/mime" />
       <path value="$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <path value="$PROJECT_DIR$/vendor/symfony/contracts" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="ProjectConfigurationFiles">
@@ -202,6 +202,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="oracle&#10;sqlserver" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
@@ -222,6 +223,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.049382716" />
           <treeState>
             <expand>
               <path>
@@ -231,7 +233,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="root:db web" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6ae7fb03" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@5742fef6" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -256,6 +258,7 @@
       <workItem from="1576080585833" duration="1105000" />
       <workItem from="1576799499852" duration="10495000" />
       <workItem from="1576873243612" duration="918000" />
+      <workItem from="1577417480138" duration="3973000" />
     </task>
     <servers />
   </component>
@@ -280,13 +283,34 @@
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="583" y="185" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1858.1080/1982.0.1858.1080@62.0.1858.1080" timestamp="1576873978592" />
-    <state width="236" height="549" key="HiddenNamespacesPopup" timestamp="1576873997336">
-      <screen x="62" y="0" width="1858" height="1080" />
+    <state width="1231" height="216" key="GridCell.Tab.0.bottom" timestamp="1577400294129">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
+    <state width="1231" height="216" key="GridCell.Tab.0.bottom/0.0.1366.738/1366.-37.1680.1020@0.0.1366.738" timestamp="1577400294129" />
+    <state width="1231" height="216" key="GridCell.Tab.0.center" timestamp="1577400294129">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1231" height="216" key="GridCell.Tab.0.center/0.0.1366.738/1366.-37.1680.1020@0.0.1366.738" timestamp="1577400294129" />
+    <state width="1231" height="216" key="GridCell.Tab.0.left" timestamp="1577400294129">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1231" height="216" key="GridCell.Tab.0.left/0.0.1366.738/1366.-37.1680.1020@0.0.1366.738" timestamp="1577400294129" />
+    <state width="1231" height="216" key="GridCell.Tab.0.right" timestamp="1577400294129">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1231" height="216" key="GridCell.Tab.0.right/0.0.1366.738/1366.-37.1680.1020@0.0.1366.738" timestamp="1577400294129" />
+    <state width="286" height="376" key="HiddenNamespacesPopup" timestamp="1577393563706">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="286" height="376" key="HiddenNamespacesPopup/0.0.1366.738/1366.-37.1680.1020@0.0.1366.738" timestamp="1577393563706" />
     <state width="236" height="549" key="HiddenNamespacesPopup/62.0.1858.1080/1982.0.1858.1080@62.0.1858.1080" timestamp="1576873997336" />
     <state x="492" y="182" key="SettingsEditor" timestamp="1576873570899">
       <screen x="62" y="0" width="1858" height="1080" />
     </state>
     <state x="492" y="182" key="SettingsEditor/62.0.1858.1080/1982.0.1858.1080@62.0.1858.1080" timestamp="1576873570899" />
+    <state x="263" y="24" key="com.intellij.database.dbimport.ImportDialog" timestamp="1577398556913">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="263" y="24" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.738/1366.-37.1680.1020@0.0.1366.738" timestamp="1577398556913" />
   </component>
 </project>
